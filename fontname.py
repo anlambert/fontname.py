@@ -81,7 +81,7 @@ def main(argv):
             nameID1_string = font_name
             nameID16_string = font_name
             # full font name
-            nameID4_string = f"{font_name} {style}"
+            nameID4_string = font_name
             # Postscript name
             # - no spaces allowed in family name or the PostScript suffix. should be dash delimited
             nameID6_string = f"{postscript_font_name}-{style.replace(' ', '')}"
@@ -96,6 +96,8 @@ def main(argv):
                 elif record.nameID == 6:
                     record.string = nameID6_string
                 elif record.nameID == 16:
+                    record.string = nameID16_string
+                elif record.nameID == 21:
                     record.string = nameID16_string
 
             # CFF table naming for CFF fonts (only)
